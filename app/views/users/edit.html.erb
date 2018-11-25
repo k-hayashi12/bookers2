@@ -1,0 +1,24 @@
+<h1>Users Info</h1>
+
+<% if @user.errors.any? %>
+	<div id="error_explanation" class="alert alert-danger">
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+           <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+           <% end %>
+          </ul>
+    </div>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+<p>Name</p>
+<%= f.text_field :name, class:"name" %>
+<p>Image</p>
+<%= f.attachment_field :image, class:"user_image" %>
+
+<p>Introduction</p>
+<%= f.text_area :introduction, class:"introduction" %>
+<br>
+<%= f.submit "Updete user" %>
+<% end %>

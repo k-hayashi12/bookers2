@@ -1,0 +1,27 @@
+<%= render "userinfo", user: @user %>
+<%= render "books/newbook", book_show: @book_show %>
+
+<div class="col-lg-9">
+<h2>Users</h2>
+<table class="table table-hover table-inverse">
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+			<th>show</th>
+		</tr>
+
+	</thead>
+		<tbody>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%= attachment_image_tag user, :image, :fill, 50, 50, fallback: "no_image.jpg",:size => "50x50" %></td>
+				<td><%= user.name %></td>
+				<td><%= link_to "show", user_path(user), class:"user_#{user.id}" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+</table>
+</div>
+</div>
+</div>
