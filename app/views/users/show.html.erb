@@ -1,3 +1,7 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
 <%= render "userinfo", user: @user %>
 <%= render "books/newbook", book_show: @book_show %>
 
