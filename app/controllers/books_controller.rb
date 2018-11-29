@@ -41,9 +41,6 @@ class BooksController < ApplicationController
 
 	def edit
 		@book = Book.find(params[:id])
-		if @book.user != current_user
-			redirect_to user_path(current_user)
-		end
 	end
 
 	def update
